@@ -15,18 +15,18 @@ pipeline {
 
     stage('Test') {
       steps {
-        sh 'chmod -R +x ./jenkins/scripts/test.sh'
-        sh './jenkins/scripts/test.sh'
+        sh 'chmod -R +x  /jenkins/scripts/test.sh'
+        sh 'sh /jenkins/scripts/test.sh '
       }
     }
 
     stage('Deliver') {
       steps {
-        sh 'chmod -R +x ./jenkins/scripts/deliver.sh'
-        sh './jenkins/scripts/deliver.sh'
+        sh 'chmod -R +x /jenkins/scripts/deliver.sh'
+        sh 'sh /jenkins/scripts/deliver.sh'
         input 'Finished using the web site? (Click "Proceed" to continue)'
-        sh 'chmod -R +x ./jenkins/scrips/kill.sh'
-        sh './jenkins/scripts/kill.sh'
+        sh 'chmod -R +x /jenkins/scrips/kill.sh'
+        sh 'sh /jenkins/scripts/kill.sh'
       }
     }
 
